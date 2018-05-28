@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
-class CreateTodo extends Component {
+export default class CreateTodo extends Component {
 
   constructor(props) {
     super(props);
-    
     this.state = {
       text: '',
     };
@@ -45,4 +44,3 @@ class CreateTodo extends Component {
   }
 };
 
-export default CreateTodo;
