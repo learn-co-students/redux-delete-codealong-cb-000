@@ -1,20 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Todo from './Todo'
 
-class Todos extends Component {
-
-  render() {
-
-    const todos = this.props.store.getState().todos.map((todo, index) => {
-      return <Todo text={todo.text} key={index} />
-    });
-
-    return(
-      <ul>
-        {todos}
-      </ul>
+const Todos = (props) => {
+  // pass store object to child component so we can delete item
+  const todos = props.store.getState().todos.map((todo, i) => {
+    return (
+      <Todo 
+        key={i}
+        id={ todo.id }
+        text={ todo.text }
+        store={ props.store }
+      />
     );
-  }
+  });
+
+  return(
+    <ul>
+      {todos}
+    </ul>
+  );
 };
 
 export default Todos;
